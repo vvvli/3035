@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="container users-containers">
+		<table class="table table-bordered table-striped table-hovered
+		table-condensed">
+			<th>Name</th>
+			<tr ng-repeat="user in vm.users">
+				<td>{{user.name}}</td>
+		</table>
+		<table class="table table-bordered table-striped table-hovered
+		table-condensed">
+			<th>About</th>
+			<tr ng-repeat="user in vm.users">
+				<td>{{user.about}}</td>
+		</table>
+		<table class="table table-bordered table-striped table-hovered
+		table-condensed">
+			<th>Education</th>
+			<tr ng-repeat="user in vm.users">
+				<td>{{user.education}}</td>
+		</table>
+		<table class="table table-bordered table-striped table-hovered
+		table-condensed">
+			<th>Skill</th>
+			<tr ng-repeat="user in vm.users">
+				<td>{{user.skill}}</td>
+		</table>
+	</div>
+</div>
