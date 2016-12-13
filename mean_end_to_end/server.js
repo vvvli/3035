@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var db = "mongodb://192.241.203.159/3035";
+var db = "mongodb://192.241.203.159/";
 
 mongoose.connect(db, function(err, response){
 	if(err){
@@ -60,6 +60,6 @@ app.use(morgan('dev'));
 
 app.use(express.static(__dirname + '/public'));
 
-app.listen(3000, function(){
+app.listen(8000, function(){
 	console.log('Listening on port 8080');
 })
