@@ -9,16 +9,32 @@
 		app.controller('HomeController', function($http){
 			var vm = this;
 
-			vm.users = [];
+			vm.admins = [];
 
-			vm.getUsers = function(){
-				$http.get('/api/users').then(function(response){
-					vm.users = response.data;
+
+			vm.getAdmins = function(){
+				$http.get('/api/admins').then(function(response){
+					vm.admins = response.data;
 				});
 			}
-			vm.getUsers();
 
+			vm.getAdmins();
+
+			vm.addAdmin = function(admin){
+				if (admin && admin.edu && admin.skills && admin.projects){
+					$http.post('/api/admins', admin).then(function(response){
+						vm.getAdmins();
+						vm.admin = '';
+						vm.addadmin = false;
+					});
+				}
+				else {
+					console.log('You have not supplied enough')
+				}
+
+			}
 			return true;
+
 		});
 
 		app.config(function($routeProvider){

@@ -25,39 +25,36 @@ var router = express.Router();
 
 //GET
 
-router.get('/api/users', function(request, response){
+router.get('/api/admins', function(request, response){
 
-	Model.find({}, function(err, users){
+	Model.find({}, function(err, admins){
 		if(err){
 			response.status(404).send(err);
 		}
 		else{
-			response.status(200).send(users)
+			response.status(200).send(admins)
 		}
 	})
 
-})
+});
 
-router.post('/api/users', function(request, response){
-	console.log(request.body);
+router.post('/api/admins', function(request, response){
 	var model = new Model();
 	model.name = request.body.name;
-	model.about = request.body.about;
-	model.education = request.body.education;
-	model.skill = request.body.skill;
-	model.save(function(err, user){
+	model.edu = request.body.edu;
+	model.skills = request.body.skills;
+	model.projects = request.body.projects;
+	model.save(function(err, admin){
 		if(err){
 			response.status(500).send(err)
 		}
-		else {
-			response.status(201).send(user)
+		else{
+			response.status(201).send(admin)
 		}
 	});
 });
 
 app.use('/', router);
-
-
 
 app.use(morgan('dev')); 
 

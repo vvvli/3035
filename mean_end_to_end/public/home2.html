@@ -1,28 +1,47 @@
 <div class="container">
-	<div class="container users-containers">
+	<div class="container admins-containers">
 		<table class="table table-bordered table-striped table-hovered
 		table-condensed">
 			<th>Name</th>
-			<tr ng-repeat="user in vm.users">
-				<td>{{user.name}}</td>
-		</table>
-		<table class="table table-bordered table-striped table-hovered
-		table-condensed">
-			<th>About</th>
-			<tr ng-repeat="user in vm.users">
-				<td>{{user.about}}</td>
+				<tr>
+				<td>Vincent Li</td>
+				</tr>
 		</table>
 		<table class="table table-bordered table-striped table-hovered
 		table-condensed">
 			<th>Education</th>
-			<tr ng-repeat="user in vm.users">
-				<td>{{user.education}}</td>
+			<tr ng-repeat="admin in vm.admins">
+				<td>{{admin.edu}}</td>
 		</table>
 		<table class="table table-bordered table-striped table-hovered
 		table-condensed">
-			<th>Skill</th>
-			<tr ng-repeat="user in vm.users">
-				<td>{{user.skill}}</td>
+			<th>Skills</th>
+			<tr ng-repeat="admin in vm.admins">
+				<td>{{admin.skills}}</td>
 		</table>
+		<table class="table table-bordered table-striped table-hovered
+		table-condensed">
+			<th>Projects</th>
+			<tr ng-repeat="admin in vm.admins">
+				<td>{{admin.projects}}</td>
+		</table>
+		<button class="btn btn-primary btn-md" ng-hide="vm.addadmin == true;" 
+		ng-click="vm.addadmin=!vm.addadmin">Add Details</button>
 	</div>
+	<div class="container create admins" ng-hide="!vm.addadmin">
+		<div class="form-group">
+			<label for="name">Education</label>
+			<input required type="text" id="education" class="form control" style="width:300px;" ng-model="vm.admin.edu">
+		</div>
+		<div class="form-group">
+			<label for="name">Skill</label>
+			<input required type="text" id="skill" class="form control" style="width:300px;" ng-model="vm.admin.skills">
+		</div>
+		<div class="form-group">
+			<label for="name">Projects</label>
+			<input required type="text" id="projects" class="form control" style="width:300px;" ng-model="vm.admin.projects">
+		</div>
+		<button class="btn btn-success" ng-click="vm.addAdmin(vm.admin)"
+		ng-disabled="!vm.admin.edu || !vm.admin.skills || !vm.admin.projects">Add</button>
+		<button class="btn btn-primary" ng-click="vm.addadmin = false;">Back</button>
 </div>
