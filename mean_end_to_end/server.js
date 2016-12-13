@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var db = "mongodb://192.241.203.159/";
+var db = "mongodb://192.241.203.159/mean_end_to_end";
 
 mongoose.connect(db, function(err, response){
 	if(err){
